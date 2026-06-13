@@ -18,7 +18,14 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "BenXinAdmin"
+        "navigationBarTitleText": "BenXinAdmin",
+        "enablePullDownRefresh": true
+      }
+    },
+    {
+      "path": "pages/content/detail",
+      "style": {
+        "navigationBarTitleText": "详情"
       }
     },
     {
