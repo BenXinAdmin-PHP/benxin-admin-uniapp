@@ -2,6 +2,7 @@
   "name": "benxin-admin-uniapp",
   "version": "1.0.0",
   "description": "BenXinAdmin C 端（uni-app + Vue3 + TS + Vite，输出微信小程序 + H5）",
+  "license": "Apache-2.0",
   "scripts": {
     "dev:h5": "uni",
     "dev:mp-weixin": "uni -p mp-weixin",
