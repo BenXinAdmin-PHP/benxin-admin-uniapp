@@ -1,6 +1,8 @@
 # BenXinAdmin · C 端（benxin-admin-uniapp）
 
 > [BenXinAdmin](https://gitee.com/binxin-admin/binxin-admin-server) 通用管理后台底座的 **C 端**（uni-app + Vue3 + TS + Vite），**一套代码输出微信小程序 + H5**（H5 主要跑在公众号环境内）。开源协议：**Apache-2.0**。
+>
+> 🤖 本项目全程 Vibe Coding 实践（AI 规划 + 编码、人类拍板验收），详见[主仓](https://gitee.com/binxin-admin/binxin-admin-server)。
 
 ## 特性
 
