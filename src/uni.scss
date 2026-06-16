@@ -83,3 +83,47 @@ $uni-color-subtitle: #555; // 二级标题颜色
 $uni-font-size-subtitle: 18px;
 $uni-color-paragraph: #3f536e; // 文章段落颜色
 $uni-font-size-paragraph: 15px;
+
+/* ======================================================================
+ * C 端设计令牌（$bx-*）：经 uni.scss 全局注入，全站页面 <style lang="scss"> 直接引用，
+ * 杜绝散落硬编码色值。配色沿用后台「经典企业」主题（深蓝→亮蓝），与登录页 Aurora 同源。
+ * 注：分类色渐变回退（无封面缩略图）在 utils/resolveMedia.ts 维护，与本表色板呼应。
+ * （内联于此而非独立文件 @import：uni.scss 注入按各组件目录解析相对路径，独立文件易找不到。）
+ * ====================================================================== */
+
+/* ---- 品牌渐变（hero / 视频遮罩 / 强调） ---- */
+$bx-grad-start: #0a1f44; // 深海蓝
+$bx-grad-mid: #1c3f86; // 品牌蓝
+$bx-grad-end: #2b6fff; // 亮蓝
+$bx-gradient-hero: linear-gradient(135deg, #0a1f44 0%, #1c3f86 52%, #2b6fff 100%);
+$bx-gradient-brand: linear-gradient(135deg, #1c3f86 0%, #2b6fff 100%);
+
+/* ---- 主色 ---- */
+$bx-primary: #2b6fff;
+$bx-primary-soft: rgba(43, 111, 255, 0.1); // pill / 选中底
+$bx-danger: #fa5151;
+
+/* ---- 文字 ---- */
+$bx-text: #1f2430; // 主
+$bx-text-sub: #6b7280; // 次
+$bx-text-weak: #9aa1ad; // 弱（meta/占位）
+$bx-text-inverse: #ffffff; // 反白（渐变上文字）
+
+/* ---- 面与边 ---- */
+$bx-bg: #f4f6fa; // 页面底
+$bx-card: #ffffff; // 卡片白
+$bx-border: #e7e9ef; // 0.5px 细边
+
+/* ---- 圆角 ---- */
+$bx-radius-card: 24rpx; // 卡片
+$bx-radius-thumb: 16rpx; // 缩略图
+$bx-radius-pill: 999rpx; // 胶囊 / chip
+
+/* ---- 间距 ---- */
+$bx-gap-page: 24rpx; // 页面边距
+$bx-gap-card: 24rpx; // 卡间距
+$bx-gap-sm: 12rpx;
+
+/* ---- 阴影 ---- */
+$bx-shadow-card: 0 6rpx 24rpx rgba(16, 32, 64, 0.06);
+$bx-shadow-float: 0 12rpx 40rpx rgba(16, 32, 64, 0.12);

@@ -40,6 +40,13 @@ export interface ContentDetail extends ContentListItem {
   content: string
 }
 
+/** 内容分类（公开精简字段，文章页筛选 chips 消费） */
+export interface ContentCategory {
+  id: number
+  name: string
+  parent_id: number
+}
+
 /** 分页结构（业务码风格 A） */
 export interface Paginated<T> {
   list: T[]
@@ -79,4 +86,9 @@ export function getContents(params: {
 /** 内容详情（含正文，后端命中浏览量原子 +1）。 */
 export function getContentDetail(id: number): Promise<ContentDetail> {
   return request<ContentDetail>({ url: `/v1/contents/${id}`, method: 'GET' })
+}
+
+/** 启用态内容分类（文章页筛选 chips；无分页，按 sort 升序由后端把关）。 */
+export function getContentCategories(): Promise<ContentCategory[]> {
+  return request<ContentCategory[]>({ url: '/v1/content/categories', method: 'GET' })
 }

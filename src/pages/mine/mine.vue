@@ -5,7 +5,7 @@
  | @author    仗键天涯(daxing)
  | @email     3442535897@qq.com
  | @date      2026-06-08
- | @updated   2026-06-14
+ | @updated   2026-06-16（C 端演示升级：视觉统一 design token，功能与登录流不变）
  +----------------------------------------------------------------------
 -->
 <script setup lang="ts">
@@ -53,25 +53,27 @@ onShow(() => {
 
 <template>
   <view class="page">
-    <!-- 登录态 -->
-    <view v-if="isLogin" class="profile">
-      <image
-        class="avatar"
-        :src="user?.avatar || '/static/logo.png'"
-        mode="aspectFill"
-      />
-      <view class="info">
-        <text class="nickname">{{ user?.nickname || '微信用户' }}</text>
-        <text class="sub">{{ maskMobile(user?.mobile || '') }} · {{ genderText }}</text>
+    <!-- 头部：品牌渐变卡（登录态 / 游客态） -->
+    <view class="header">
+      <view v-if="isLogin" class="hero-user">
+        <image
+          class="avatar"
+          :src="user?.avatar || '/static/logo.png'"
+          mode="aspectFill"
+        />
+        <view class="info">
+          <text class="nickname">{{ user?.nickname || '微信用户' }}</text>
+          <text class="sub">{{ maskMobile(user?.mobile || '') }} · {{ genderText }}</text>
+        </view>
       </view>
-    </view>
 
-    <!-- 游客态 -->
-    <view v-else class="guest" @click="goLogin">
-      <image class="avatar" src="/static/logo.png" mode="aspectFill" />
-      <view class="info">
-        <text class="nickname">点击登录 / 注册</text>
-        <text class="sub">登录后体验完整功能</text>
+      <view v-else class="hero-user" @click="goLogin">
+        <image class="avatar" src="/static/logo.png" mode="aspectFill" />
+        <view class="info">
+          <text class="nickname">点击登录 / 注册</text>
+          <text class="sub">登录后体验完整功能</text>
+        </view>
+        <text class="enter">›</text>
       </view>
     </view>
 
@@ -95,26 +97,35 @@ onShow(() => {
 
 <style lang="scss" scoped>
 .page {
-  padding: 32rpx;
+  min-height: 100vh;
+  background: $bx-bg;
+  padding: $bx-gap-page;
 }
-.profile,
-.guest {
+
+/* ---- 头部渐变卡 ---- */
+.header {
+  border-radius: $bx-radius-card;
+  background: $bx-gradient-hero;
+  box-shadow: $bx-shadow-card;
+  padding: 44rpx 32rpx;
+  margin-bottom: 28rpx;
+}
+.hero-user {
   display: flex;
   align-items: center;
   gap: 24rpx;
-  background: #fff;
-  border-radius: 16rpx;
-  padding: 36rpx 28rpx;
-  margin-bottom: 32rpx;
 }
 .avatar {
   width: 112rpx;
   height: 112rpx;
   border-radius: 50%;
-  background: #f2f3f5;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2rpx solid rgba(255, 255, 255, 0.5);
   flex-shrink: 0;
 }
 .info {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 10rpx;
@@ -122,15 +133,23 @@ onShow(() => {
 .nickname {
   font-size: 34rpx;
   font-weight: 600;
-  color: #2c405a;
+  color: $bx-text-inverse;
 }
 .sub {
   font-size: 24rpx;
-  color: #9aa4b2;
+  color: rgba(255, 255, 255, 0.8);
 }
+.enter {
+  font-size: 40rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ---- 菜单 ---- */
 .menu {
-  background: #fff;
-  border-radius: 16rpx;
+  background: $bx-card;
+  border: 1rpx solid $bx-border;
+  border-radius: $bx-radius-card;
+  box-shadow: $bx-shadow-card;
   overflow: hidden;
   margin-bottom: 48rpx;
 }
@@ -139,18 +158,18 @@ onShow(() => {
   align-items: center;
   justify-content: space-between;
   padding: 32rpx 28rpx;
-  border-bottom: 1rpx solid #f2f3f5;
+  border-bottom: 1rpx solid $bx-border;
 }
 .menu-item:last-child {
   border-bottom: none;
 }
 .menu-text {
   font-size: 28rpx;
-  color: #3f536e;
+  color: $bx-text;
 }
 .menu-arrow {
   font-size: 36rpx;
-  color: #c0c4cc;
+  color: $bx-text-weak;
 }
 .logout-wrap {
   padding: 0 8rpx;
