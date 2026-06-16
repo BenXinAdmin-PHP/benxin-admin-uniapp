@@ -19,7 +19,9 @@ const props = defineProps<{
   categoryName?: string
 }>()
 
-const emit = defineEmits<{ (e: 'tap', id: number): void }>()
+// 事件名用 'select' 而非 'tap'：'tap' 是小程序原生事件名，自定义事件撞名会被编成原生
+// bindtap，父级回调收到的是微信原生事件对象而非 id（致详情页 id=NaN 全落错误态）。
+const emit = defineEmits<{ (e: 'select', id: number): void }>()
 
 /** 封面解析：/static 或 http 直接用，其它（空/本地 key）回退渐变块。 */
 const cover = computed(() => resolveMedia(props.item.cover))
@@ -34,7 +36,7 @@ const dateText = computed(() => shortDate(props.item.publish_at || props.item.cr
 </script>
 
 <template>
-  <view class="bx-card" @click="emit('tap', item.id)">
+  <view class="bx-card" @click="emit('select', item.id)">
     <view class="thumb">
       <image v-if="cover" class="thumb-img" :src="cover" mode="aspectFill" />
       <view v-else class="thumb-fallback" :style="{ background: gradient }">

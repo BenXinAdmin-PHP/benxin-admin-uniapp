@@ -183,7 +183,7 @@ onPullDownRefresh(async () => {
           :key="item.id"
           :item="item"
           :category-name="catName(item.category_id)"
-          @tap="goDetail"
+          @select="goDetail"
         />
       </view>
 
