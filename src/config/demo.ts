@@ -42,8 +42,8 @@ export const ABOUT = {
  * 海报随 uniapp 仓打包（/static/demo/*.jpg），即便 src 为空也始终渲染，保证默认态门面完整。
  */
 export const DEMO_VIDEOS: { title: string; poster: string; src: string }[] = [
-  { title: '功能速览', poster: '/static/demo/video-1.jpg', src: '' },
-  { title: '代码生成器演示', poster: '/static/demo/video-2.jpg', src: '' },
+  { title: '功能速览', poster: '/static/demo/video-overview.png', src: '' },
+  { title: '代码生成器演示', poster: '/static/demo/video-codegen-demo.png', src: '' },
 ]
 
 /**
