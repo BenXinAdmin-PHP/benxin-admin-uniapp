@@ -14,8 +14,8 @@
 /** 首页 hero 轮播文案（可改）。每张 = 渐变背景 + 标题 + 副标题。 */
 export const HERO_SLIDES: { title: string; subtitle: string }[] = [
   {
-    title: 'BenXinAdmin 通用管理后台底座',
-    subtitle: 'ThinkPHP8 + Vue3 + uni-app，一套代码三端通吃',
+    title: '本心通用管理后台底座',
+    subtitle: 'PHP8 + Vue3 + uni-app，一套代码三端通吃',
   },
   {
     title: '代码生成器护城河',
@@ -45,3 +45,14 @@ export const DEMO_VIDEOS: { title: string; poster: string; src: string }[] = [
   { title: '功能速览', poster: '/static/demo/video-1.jpg', src: '' },
   { title: '代码生成器演示', poster: '/static/demo/video-2.jpg', src: '' },
 ]
+
+/**
+ * 应用元信息（「我的」关于弹层 / 文档入口用，可改）。
+ * 版本号随发布手动更新；仓库地址用 Gitee 主仓（GitHub 镜像见 README）。
+ */
+export const APP_META = {
+  name: 'BenXinAdmin',
+  version: 'v0.2.1',
+  license: 'Apache-2.0',
+  repo: 'https://gitee.com/binxin-admin/binxin-admin-server',
+}
